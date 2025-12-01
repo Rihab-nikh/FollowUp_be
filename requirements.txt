@@ -47,3 +47,6 @@ Flask-Mail==0.9.1
 
 # Background tasks
 celery==5.3.4
+
+# Production server for deployment
+gunicorn==21.2.0
