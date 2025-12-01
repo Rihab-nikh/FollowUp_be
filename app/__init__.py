@@ -26,12 +26,13 @@ def create_app(config_class=Config):
     
     # Initialize extensions
     init_db(app)
-    # Configure CORS origins: allow localhost and the Vercel frontend
+    # Configure CORS origins: allow localhost, Vercel frontend, and Fly.dev backend
     # Keep using config if provided (FRONTEND_ORIGINS can be comma-separated or a list)
-    # Default explicitly includes the deployed Vercel URL used by the frontend.
+    # Default explicitly includes the deployed Vercel URL and Fly.dev backend URL.
     CORS(app, origins=[
         'http://localhost:3000',
-        'https://v0-extractedfrontend.vercel.app'
+        'https://v0-extractedfrontend.vercel.app',
+        'https://followup-be.fly.dev'
     ])
     # NOTE: This project uses MongoDB (pymongo). Flask-Migrate is for SQLAlchemy
     # databases and will raise an error when passed a pymongo Database object.
